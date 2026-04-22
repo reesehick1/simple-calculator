@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Basic App")
+        self.setWindowTitle("simple calculator")
         self.setContentsMargins(12, 12, 12, 12)
         self.resize(320, 240)
 

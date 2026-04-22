@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Basic App")
+        self.setWindowTitle("simple calculator")
         self.setContentsMargins(12, 12, 12, 12)
         self.resize(320, 240)
 
@@ -28,10 +28,16 @@ class MainWindow(QMainWindow):
         title_label = QLabel("Basic App: a simple greeting app.")
 
         # TODO: add a text input for user's name
-
+        self.name_input = QLineEdit(placeholderText = "name")
         # TODO: add a push button to greet user
-
+        sumbit_button = QPushButton("submit")
+        sumbit_button.clicked.connect(self.get_input)
         # TODO: add a label to greet user
+        self.instructions = "Enter your name, then click the button. "
+        self.output_label = QLabel(self.instructions)
+        self.output_label.setWordWrap(True)
+
+
 
         """
         Challenges:
@@ -43,7 +49,9 @@ class MainWindow(QMainWindow):
 
         # add widgets & layouts to main layout
         layout.addWidget(title_label)
-
+        layout.addWidget(self.name_input)
+        layout.addWidget(sumbit_button)
+        layout.addWidget(self.output_label)
         # [OPTIONAL] Add a stretch to move everything up
         layout.addStretch()
 
@@ -52,7 +60,12 @@ class MainWindow(QMainWindow):
 
         # Set the central widget of the Window.
         self.setCentralWidget(widget)
-
+    def get_input(self):
+        output = ""
+        name = self. name_input.text()
+        if not name:
+            output = "You didnt enter a name"
+        self.output_label.setText(output)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
