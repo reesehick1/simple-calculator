@@ -7,12 +7,16 @@ A demo of the most basic input/output: labels, text inputs, and buttons.
 import sys
 from PySide6.QtWidgets import (
     QApplication,
+    QHBoxLayout,
     QLabel,
     QLineEdit,
     QMainWindow,
     QPushButton,
     QVBoxLayout,
     QWidget,
+    QSpinBox,
+    QDoubleSpinBox, 
+    QComboBox, 
 )
 
 
@@ -29,6 +33,13 @@ class MainWindow(QMainWindow):
 
         # TODO: add a text input for user's name
         self.name_input = QLineEdit(placeholderText = "name")
+        # TODO: add on or more horazontal layouts with widgets side by side
+        age_layout = QHBoxLayout()
+        age_label = QLabel("Age: ")
+        age_spinbox = QSpinBox()
+        age_layout.addWidget(age_label)
+        age_layout.addWidget(age_spinbox)
+        
         # TODO: add a push button to greet user
         sumbit_button = QPushButton("submit")
         sumbit_button.clicked.connect(self.get_input)
@@ -50,6 +61,7 @@ class MainWindow(QMainWindow):
         # add widgets & layouts to main layout
         layout.addWidget(title_label)
         layout.addWidget(self.name_input)
+        layout.addLayout(age_layout)
         layout.addWidget(sumbit_button)
         layout.addWidget(self.output_label)
         # [OPTIONAL] Add a stretch to move everything up
