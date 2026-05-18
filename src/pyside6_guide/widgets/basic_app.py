@@ -33,6 +33,7 @@ class MainWindow(QMainWindow):
 
         # TODO: add a text input for user's name
         self.name_input = QLineEdit(placeholderText = "name")
+
         # TODO: add on or more horazontal layouts with widgets side by side
         age_layout = QHBoxLayout()
         age_label = QLabel("Age: ")
@@ -43,6 +44,7 @@ class MainWindow(QMainWindow):
         # TODO: add a push button to greet user
         sumbit_button = QPushButton("submit")
         sumbit_button.clicked.connect(self.get_input)
+
         # TODO: add a label to greet user
         self.instructions = "Enter your name, then click the button. "
         self.output_label = QLabel(self.instructions)
@@ -64,9 +66,9 @@ class MainWindow(QMainWindow):
         layout.addLayout(age_layout)
         layout.addWidget(sumbit_button)
         layout.addWidget(self.output_label)
+
         # [OPTIONAL] Add a stretch to move everything up
         layout.addStretch()
-
         widget = QWidget()
         widget.setLayout(layout)
 
@@ -74,7 +76,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
     def get_input(self):
         output = ""
-        name = self. name_input.text()
+        name = self.name_input.text()
         if not name:
             output = "You didnt enter a name"
         self.output_label.setText(output)
