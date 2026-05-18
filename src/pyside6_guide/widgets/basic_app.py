@@ -79,7 +79,16 @@ class MainWindow(QMainWindow):
         name = self.name_input.text()
         if not name:
             output = "You didnt enter a name"
+        else:
+            output = "thats a good name"
         self.output_label.setText(output)
+         
+
+
+
+
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
